@@ -1,0 +1,11 @@
+import os
+import Image
+import imghdr
+files = os.listdir(os.getcwd())
+
+for i in files:
+    if os.path.isfile(i) != False and imghdr.what(i) == 'bmp':
+        if os.path.exists(i[:-3]+'jpeg') != True:
+            print i[:-3]+'jpeg is not exist, we can create it now!'
+            a = Image.open(i)
+            a.save(i[:-3]+'jpeg','jpeg')
